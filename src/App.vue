@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { computed } from 'vue';
+import { useRoute, RouterLink, RouterView } from 'vue-router';
+import { useHead } from '@unhead/vue'
 import { useDark, useToggle } from '@vueuse/core';
 import { MoonIcon, SunIcon } from '@radix-icons/vue';
 import { useRecaptchaProvider } from 'vue-recaptcha'
@@ -12,6 +14,24 @@ const { romanYear, convertToRoman } = useRomanConverter();
 const currentYear = new Date().getFullYear();
 convertToRoman(currentYear);
 useRecaptchaProvider()
+
+const route = useRoute()
+
+// watch for route changes
+const computedTitle = computed(() => {
+    switch (route.name) {
+        case 'about':
+            return 'About Me - David Garay';
+        case 'contact':
+            return 'Contact Me - David Garay';
+        default:
+            return 'David Garay - Senior Software Engineer';
+    }
+})
+
+useHead({
+  title:  () => computedTitle.value
+})
 </script>
 
 <template>
