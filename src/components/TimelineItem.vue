@@ -17,9 +17,9 @@ const parseDate = (date: string) => new Date(date).toLocaleDateString('en-US', {
 <template>
     <div class="relative flex items-center justify-between lg:justify-normal lg:odd:flex-row-reverse group is-active">
         <div
-            class="flex items-center justify-center size-4 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 translate-x-3 lg:order-1 lg:group-odd:-translate-x-8 lg:group-even:translate-x-8">
+            class="flex items-center justify-center size-4 rounded-full bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 translate-x-3 lg:order-1 lg:group-odd:-translate-x-8 lg:group-even:translate-x-8">
         </div>
-        <div class="w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 rounded border-2 border-zinc-300">
+        <div class="w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 rounded-lg border-2 border-zinc-300">
             <div class="flex justify-between space-x-2 mb-1">
                 <div class="text-zinc-900 dark:text-zinc-400 text-lg flex flex-col">
                     {{ item.company }}
