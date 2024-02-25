@@ -17,7 +17,7 @@ useRecaptchaProvider()
 <template>
   <div id="app" class="bg-gray-100 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 min-h-screen">
     <div class="flex flex-col w-full max-w-7xl mx-auto px-6">
-      <header class="w-full flex justify-between items-center h-24">
+      <header class="w-full flex justify-between items-center h-20 sticky top-0 bg-gray-100 dark:bg-zinc-950 z-50">
         <RouterLink to="/" class="">
           <SVGLogo class="size-16 hover:scale-110" />
         </RouterLink>
@@ -42,6 +42,8 @@ useRecaptchaProvider()
       </header>
       <RouterView />
     </div>
+    
+  <footer class="min-h-80">
     <div
       class="flex py-8 md:py-0 md:fixed md:origin-bottom-left md:bottom-6 md:left-10 justify-center items-center text-emerald-500 dark:text-emerald-300 md:-rotate-90">
       <div class="hidden md:flex bg-emerald-400 w-20 mr-4 h-[1px]" />
@@ -49,4 +51,5 @@ useRecaptchaProvider()
         &copy; {{ romanYear }} David Garay. All rights reserved.
       </p>
   </div>
+  </footer>
 </div></template>
