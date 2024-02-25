@@ -53,18 +53,16 @@ onVerify(async (response) => {
 })
 </script>
 <template>
-  <main class="mt-40">
+  <main class="mt-10 md:mt-20 px-2 md:px-12">
     <h1 class="text-6xl font-bold">
       Contact Me<span class="text-7xl text-emerald-400">.</span>
     </h1>
     <p class="text-2xl mt-4">
       Leave me a message and I'll get back to you as soon as possible.
     </p>
-  </main>
-  <section>
     <form @submit.prevent="execute" class="mt-20">
       <div class="flex flex-col gap-4">
-        <div class="flex w-full gap-6">
+        <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6">
           <div class="flex flex-col gap-2 w-full">
             <label for="name" class="text-xl">Name</label>
             <input type="text" id="name" v-model="form.name" placeholder="John Doe"
@@ -101,6 +99,6 @@ onVerify(async (response) => {
         </div>
       </div>
     </form>
-  </section>
+  </main>
 </template>
 

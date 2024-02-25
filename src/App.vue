@@ -16,19 +16,22 @@ useRecaptchaProvider()
 
 <template>
   <div id="app" class="bg-gray-100 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 min-h-screen">
-    <div class="flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col w-full max-w-7xl mx-auto px-6">
       <header class="w-full flex justify-between items-center h-24">
         <RouterLink to="/" class="">
           <SVGLogo class="size-16 hover:scale-110" />
         </RouterLink>
         <nav class="flex gap-8">
-          <RouterLink to="/" class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
+          <RouterLink to="/" active-class="scale-110 text-emerald-600 dark:text-emerald-300"
+            class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
             ./home
           </RouterLink>
-          <RouterLink to="/about" class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
+          <RouterLink to="/about" active-class="scale-110 text-emerald-600 dark:text-emerald-300"
+            class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
             ./about
           </RouterLink>
-          <RouterLink to="/contact" class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
+          <RouterLink to="/contact" active-class="scale-110 text-emerald-600 dark:text-emerald-300"
+            class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
             ./contact
           </RouterLink>
           <button @click="toggleDark()" class="hover:scale-125 hover:text-zinc-500 dark:hover:text-zinc-300">
@@ -39,11 +42,11 @@ useRecaptchaProvider()
       </header>
       <RouterView />
     </div>
+    <div
+      class="flex py-8 md:py-0 md:fixed md:origin-bottom-left md:bottom-6 md:left-10 justify-center items-center text-emerald-500 dark:text-emerald-300 md:-rotate-90">
+      <div class="hidden md:flex bg-emerald-400 w-20 mr-4 h-[1px]" />
+      <p class="text-sm text-left font-extralight">
+        &copy; {{ romanYear }} David Garay. All rights reserved.
+      </p>
   </div>
-  <div class="fixed origin-bottom-left bottom-6 left-10 flex items-center text-emerald-500 dark:text-emerald-300 -rotate-90">
-    <div class="bg-emerald-400 w-20 mr-4 h-[1px]" />
-    <p class="text-sm text-left font-extralight">
-      &copy; {{ romanYear }} David Garay. All rights reserved.
-    </p>
-  </div>
-</template>
+</div></template>

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "company": "Campaign Nucleus",
+        "role": "Sr. Software Engineer",
+        "description": "Led the integration of SMS/email transactional services, managing large-scale messaging systems. Developed high-performance web applications with Laravel, Vue 3, and TailwindCSS, handling millions of records. Optimized data handling and scalability with effective queue/job strategies. Advocated for TDD to improve code quality, using MySQL/PostgreSQL for data management and Pint/Pest for styling/testing.",
+        "startDate": "2023-06-10",
+        "endDate": null
+    },
+    {
+        "id": 2,
+        "company": "S4 Learning",
+        "role": "Sr. Fullstack Developer - Tech Lead",
+        "description": "Directed an 8-person Fullstack Developer team to create scalable, maintainable Vue.js/Laravel applications, emphasizing code quality and best practices. Developed SPA and Inertia-based apps, integrating Vue Router, Vuex, Tailwind CSS, and Laravel Sanctum/Forge. Expanded skills with React, Node.js, and Django projects. Mentored team for skill enhancement and collaboration, ensuring code testability and maintenance through strict QA processes.",
+        "startDate": "2021-02-10",
+        "endDate": "2023-06-10"
+    },
+    {
+        "id": 3,
+        "company": "Home and Media Products",
+        "role": "Sr. Fullstack Developer",
+        "description": "Developed web applications with Laravel, VueJS, HTML5, and TailwindCSS. Integrated real-time updates via Websockets, Pusher, and Laravel Echo. Deployed on Heroku and AWS for enhanced availability and scalability. Contributed to projects in an Agile setting, with a strong emphasis on continuous learning. Significantly enhanced Go expertise by engineering a backend for multi-platform educational software, catering to Windows, macOS, iOS, and Android, showcasing deepened Go skills for versatile, high-impact solutions.",
+        "startDate": "2019-10-10",
+        "endDate": "2021-02-10"
+    },
+    {
+        "id": 4,
+        "company": "Xambre",
+        "role": "Fullstack Developer",
+        "description": "Engineered a multi-tenant ERP solution featuring reporting, point of sale, and invoicing modules compliant with Mexican tax standards, utilizing vanilla PHP, MariaDB, and Bazaar versioning for optimal quality and performance. Configured and maintained Linux servers for web application deployment, enhancing operational efficiency and uptime. Expanded technical skillset through basic LUA scripting, diversifying my programming proficiency.",
+        "startDate": "2019-05-10",
+        "endDate": "2019-10-10"
+    },
+    {
+        "id": 5,
+        "company": "Servindtec",
+        "role": "Fullstack Developer",
+        "description": "Developed and deployed several web applications using Laravel and Vue for internal administrative tracking and client-facing shipment and invoice tracking for various logistics companies. Worked collaboratively with developers, designers, and clients to ensure projects were completed on time and within budget. This experience significantly enhanced my capabilities as a Full-Stack Web Developer, with a concentrated expertise in Vue and Laravel technologies.",
+        "startDate": "2018-01-10",
+        "endDate": "2019-05-10"
+    },
+    {
+        "id": 6,
+        "company": "QHR Payroll Services",
+        "role": "Fullstack Developer",
+        "description": "Developed and deployed an Ionic application for factory employees to access payroll details, including pay stubs, vacation days, and taxes, through a secure integration with our Laravel API for payroll and HR data. Additionally, contributed to the development of multiple Laravel APIs, facilitating the external consumption of payroll and HR data by third-party applications. This project highlighted my ability to create secure, user-centric applications and extend data accessibility through robust API development.",
+        "startDate": "2016-08-10",
+        "endDate": "2017-12-10"
+    }
+]
