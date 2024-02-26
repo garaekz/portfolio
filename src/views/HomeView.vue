@@ -45,7 +45,7 @@
   </div>
   <section id="laravel" class="px-6 md:px-14">
     <div class="w-full md:w-1/2 flex flex-col mt-40 mb-28">
-      <h2 class="text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Laravel</span> Expert</h2>
+      <h2 class="text-4xl lg:text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Laravel</span> Expert</h2>
       <p class="text-xl mt-4">
         I've been working with Laravel for over 8 years now. I've built a lot of projects with it focusing on escability,
         performance and security. I have lots of experience with Laravel ecosystem, testing practices, queues, commands,
@@ -58,7 +58,7 @@
   </div>
   <section id="vue" class="w-full flex flex-col items-end px-6 md:px-14">
     <div class="w-full md:w-1/2 flex flex-col my-12">
-      <h2 class="text-6xl font-bold text-right"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Vue.js</span> and <span class="text-emerald-400 dark:text-emerald-300 font-bold">TailwindCSS</span> Lover</h2>
+      <h2 class="text-4xl lg:text-6xl font-bold text-right"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Vue.js</span> and <span class="text-emerald-400 dark:text-emerald-300 font-bold">TailwindCSS</span> Lover</h2>
       <p class="text-xl mt-4 text-right">
         What do you use to complement your Laravel projects? Vue.js and TailwindCSS are my go-to tools. I've been working
         with Vue.js for over 7 years now, I just love how it integrates with Laravel. TailwindCSS is my favorite CSS
@@ -72,7 +72,7 @@
   </div>
   <section id="more" class="px-6 md:px-14">
     <div class="w-full md:w-1/2 flex flex-col my-12">
-      <h2 class="text-6xl font-bold">Want to know me better?</h2>
+      <h2 class="text-4xl lg:text-6xl font-bold">Want to know me better?</h2>
       <p class="text-xl mt-4">
         You can see my linkedin profile, my github repositories, or just send me an email. I'm always open to new projects. Or you can navigate to my about page to know more about me.
       </p>

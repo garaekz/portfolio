@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute, RouterLink, RouterView } from 'vue-router';
 import { useHead } from '@unhead/vue'
 import { useDark, useToggle } from '@vueuse/core';
-import { MoonIcon, SunIcon } from '@radix-icons/vue';
+import { MoonIcon, SunIcon, Cross1Icon } from '@radix-icons/vue';
 import { useRecaptchaProvider } from 'vue-recaptcha'
 import { useRomanConverter } from '@/composables/roman';
 import SVGLogo from './components/SVGLogo.vue';
@@ -17,59 +17,93 @@ useRecaptchaProvider()
 
 const route = useRoute()
 
-// watch for route changes
 const computedTitle = computed(() => {
-    switch (route.name) {
-        case 'about':
-            return 'About Me - David Garay';
-        case 'contact':
-            return 'Contact Me - David Garay';
-        default:
-            return 'David Garay - Senior Software Engineer';
-    }
+  switch (route.name) {
+    case 'about':
+      return 'About Me - David Garay';
+    case 'contact':
+      return 'Contact Me - David Garay';
+    default:
+      return 'David Garay - Senior Software Engineer';
+  }
 })
 
 useHead({
-  title:  () => computedTitle.value
+  title: () => computedTitle.value
 })
+
+const menuList = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' }
+]
+
+const isMenuOpen = ref(false)
+const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
 </script>
 
 <template>
   <div id="app" class="bg-gray-100 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 min-h-screen">
     <div class="flex flex-col w-full max-w-7xl mx-auto px-6">
-      <header class="w-full flex justify-between items-center h-20 sticky top-0 bg-gray-100 dark:bg-zinc-950 z-50">
+      <header class="w-full flex justify-between items-center h-20 sticky top-0 bg-gray-100 dark:bg-zinc-950 z-30">
         <RouterLink to="/" class="">
           <SVGLogo class="size-16 hover:scale-110" />
         </RouterLink>
-        <nav class="flex gap-8">
-          <RouterLink to="/" active-class="scale-110 text-emerald-600 dark:text-emerald-300"
-            class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
-            ./home
-          </RouterLink>
-          <RouterLink to="/about" active-class="scale-110 text-emerald-600 dark:text-emerald-300"
-            class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
-            ./about
-          </RouterLink>
-          <RouterLink to="/contact" active-class="scale-110 text-emerald-600 dark:text-emerald-300"
-            class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300">
-            ./contact
-          </RouterLink>
-          <button @click="toggleDark()" class="hover:scale-125 hover:text-zinc-500 dark:hover:text-zinc-300">
+        <div>
+          <nav class="hidden md:flex gap-8">
+            <RouterLink v-for="menu in menuList" :key="menu.name" :to="menu.path"
+              active-class="scale-110 text-emerald-600 dark:text-emerald-300"
+              class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300 lowercase">
+              {{ `./${menu.name}` }}
+            </RouterLink>
+            <button @click="toggleDark()" class="hover:scale-125 hover:text-zinc-500 dark:hover:text-zinc-300">
+              <SunIcon v-if="isDark" class="size-4" />
+              <MoonIcon v-else class="size-4" />
+            </button>
+          </nav>
+          <transition enter-active-class="transition-opacity duration-500"
+            leave-active-class="transition-opacity duration-300" enter-class="opacity-0" enter-to-class="opacity-100"
+            leave-class="opacity-100" leave-to-class="opacity-0">
+            <nav v-show="isMenuOpen"
+              class="absolute gap-16 top-0 left-0 h-screen w-full bg-gray-100 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 z-40">
+              <button @click="toggleMenu" class="absolute top-8 right-4">
+                <Cross1Icon class="size-8" />
+              </button>
+              <div class="flex flex-col justify-center items-center gap-16 h-screen">
+                <RouterLink @click="toggleMenu" v-for="(menu, index) in menuList" :key="menu.name" :to="menu.path"
+                  active-class="scale-1 text-emerald-600 dark:text-emerald-300"
+                  :class="`transition-transform transform duration-500 delay-${index * 100} ease-in-out`"
+                  class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300 font-bold text-5xl">
+                  {{ menu.name }}
+                </RouterLink>
+              </div>
+            </nav>
+          </transition>
+          <div class="flex gap-8" :class="isMenuOpen ? 'hidden' : 'md:hidden'">
+            <button @click="toggleDark()" class="hover:scale-125 hover:text-zinc-500 dark:hover:text-zinc-300">
             <SunIcon v-if="isDark" class="size-4" />
             <MoonIcon v-else class="size-4" />
           </button>
-        </nav>
+          <button @click="toggleMenu">
+            <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          </div>
+        </div>
       </header>
       <RouterView />
     </div>
-    
-  <footer class="min-h-80">
-    <div
-      class="flex py-8 md:py-0 md:fixed md:origin-bottom-left md:bottom-6 md:left-10 justify-center items-center text-emerald-500 dark:text-emerald-300 md:-rotate-90">
-      <div class="hidden md:flex bg-emerald-400 w-20 mr-4 h-[1px]" />
-      <p class="text-sm text-left font-extralight">
-        &copy; {{ romanYear }} David Garay. All rights reserved.
-      </p>
+
+    <footer class="min-h-80">
+      <div
+        class="flex py-8 md:py-0 md:fixed md:origin-bottom-left md:bottom-6 md:left-10 justify-center items-center text-emerald-500 dark:text-emerald-300 md:-rotate-90">
+        <div class="hidden md:flex bg-emerald-400 w-20 mr-4 h-[1px]" />
+        <p class="text-sm text-left font-extralight">
+          &copy; {{ romanYear }} David Garay. All rights reserved.
+        </p>
+      </div>
+    </footer>
   </div>
-  </footer>
-</div></template>
+</template>
