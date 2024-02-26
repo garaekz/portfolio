@@ -29,7 +29,7 @@ import ExperienceTimeline from '@/components/ExperienceTimeline.vue';
         <p class="text-2xl mt-4 mb-8">
           What can I do and using what<span class="text-3xl text-emerald-600 dark:text-emerald-400">?</span>  
         </p>
-        <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
           <div>
             <h3 class="text-4xl font-bold">Languages</h3>
             <ul class="text-2xl mt-4">
