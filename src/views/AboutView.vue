@@ -24,8 +24,8 @@ import ExperienceTimeline from '@/components/ExperienceTimeline.vue';
     </main>
     <section id="skills" class="w-full flex flex-col mt-20">
       <div class="w-full flex flex-col my-12">
-        <h2 class="text-6xl text-emerald-600 dark:text-emerald-300 font-bold">Skills<span
-            class="text-7xl text-zinc-400 dark:text-gray-300 font-bold">.</span></h2>
+        <h2 class="text-5xl md:text-6xl text-emerald-600 dark:text-emerald-300 font-bold">Skills<span
+            class="text-6xl md:text-7xl text-zinc-400 dark:text-gray-300 font-bold">.</span></h2>
         <p class="text-2xl mt-4 mb-8">
           What can I do and using what<span class="text-3xl text-emerald-600 dark:text-emerald-400">?</span>  
         </p>
@@ -74,8 +74,8 @@ import ExperienceTimeline from '@/components/ExperienceTimeline.vue';
     </section>
     <section id="experience" class="w-full flex flex-col">
       <div class="w-full flex flex-col my-12">
-        <h2 class="text-6xl font-bold">Experience<span
-            class="text-7xl text-emerald-400">.</span></h2>
+        <h2 class="text-5xl md:text-6xl font-bold">Experience<span
+            class="text-6xl md:text-7xl text-emerald-400">.</span></h2>
       </div>
       <experience-timeline />
     </section>
