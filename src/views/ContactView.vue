@@ -60,7 +60,7 @@ onVerify(async (response) => {
     <p class="text-2xl mt-4">
       Leave me a message and I'll get back to you as soon as possible.
     </p>
-    <form @submit.prevent="execute" class="mt-20">
+    <form class="mt-20" netlify>
       <div class="flex flex-col gap-4">
         <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6">
           <div class="flex flex-col gap-2 w-full">
@@ -80,7 +80,6 @@ onVerify(async (response) => {
             class="p-4 rounded bg-transparent border-2 border-zinc-800 dark:border-zinc-200"
             placeholder="Please, explain in detail the purpose of this message. I'll get back to you as soon as possible."></textarea>
         </div>
-        <div ref="root" />
         <div>
           <button v-if="!sending" type="submit"
             class="bg-transparent border-2 border-zinc-800 dark:border-zinc-200 text-zinc-800 dark:text-zinc-200 p-4 rounded-lg hover:scale-105 transition-transform hover:border-emerald-500 hover:text-emerald-500 dark:hover:border-emerald-300 dark:hover:text-emerald-300">
