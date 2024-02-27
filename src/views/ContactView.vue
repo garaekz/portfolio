@@ -60,23 +60,23 @@ onVerify(async (response) => {
     <p class="text-2xl mt-4">
       Leave me a message and I'll get back to you as soon as possible.
     </p>
-    <form class="mt-20" netlify>
+    <form name="contact" method="POST" class="mt-20" netlify>
       <div class="flex flex-col gap-4">
         <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6">
           <div class="flex flex-col gap-2 w-full">
             <label for="name" class="text-xl">Name</label>
-            <input type="text" id="name" v-model="form.name" placeholder="John Doe"
+            <input type="text" id="name" name="name" v-model="form.name" placeholder="John Doe"
               class="p-4 rounded bg-transparent border-2 border-zinc-800 dark:border-zinc-200" />
           </div>
           <div class="flex flex-col gap-2 w-full">
             <label for="email" class="text-xl">Email</label>
-            <input type="email" id="email" v-model="form.email" placeholder="john@doe.io"
+            <input type="email" name="email" id="email" v-model="form.email" placeholder="john@doe.io"
               class="p-4 rounded bg-transparent border-2 border-zinc-800 dark:border-zinc-200" />
           </div>
         </div>
         <div class="flex flex-col gap-2">
           <label for="message" class="text-xl">Message</label>
-          <textarea id="message" v-model="form.message" rows="10"
+          <textarea id="message" name="message" v-model="form.message" rows="10"
             class="p-4 rounded bg-transparent border-2 border-zinc-800 dark:border-zinc-200"
             placeholder="Please, explain in detail the purpose of this message. I'll get back to you as soon as possible."></textarea>
         </div>
