@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useRoute, RouterLink, RouterView } from 'vue-router';
+import { useRoute, RouterView } from 'vue-router';
 import { useHead } from '@unhead/vue'
 import { useDark, useToggle } from '@vueuse/core';
 import { ArrowUpIcon, MoonIcon, SunIcon, Cross1Icon } from '@radix-icons/vue';
@@ -33,11 +33,11 @@ useHead({
 })
 
 const menuList = [
-  { name: 'Home', path: '#laravel' },
+  { name: 'Home', path: '#' },
   { name: 'About', path: '#about' },
   { name: 'Contact', path: '#contact' }
 ]
-
+console.log(route)
 const isMenuOpen = ref(false)
 const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
 </script>
@@ -46,13 +46,15 @@ const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
   <div id="app" class="bg-gray-100 dark:bg-zinc-950 text-gray-900 dark:text-gray-100 min-h-screen">
     <div class="flex flex-col w-full max-w-7xl mx-auto px-6">
       <header class="w-full flex justify-between items-center h-20 sticky top-0 bg-gray-100 dark:bg-zinc-950 z-30">
-        <RouterLink to="/" class="">
+        <a href="#" class="">
           <SVGLogo class="size-16 hover:scale-110" />
-        </RouterLink>
+        </a>
         <div>
           <nav class="hidden md:flex gap-8">
             <a v-for="menu in menuList" :key="menu.name" :href="menu.path"
-              active-class="scale-110 text-emerald-600 dark:text-emerald-300"
+              :class="{
+                'scale-110 text-emerald-600 dark:text-emerald-300': (route.hash === menu.path) || (menu.path === '#' && route.hash === '')
+              }"
               class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300 lowercase">
               {{ `./${menu.name}` }}
             </a>
