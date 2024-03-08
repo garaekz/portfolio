@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import AboutMe from '@/components/AboutMe.vue';
+import ContactForm from '@/components/ContactForm.vue';
 </script>
 
 <template>
@@ -45,7 +47,7 @@
   </div>
   <section id="laravel" class="px-6 md:px-14">
     <div class="w-full md:w-1/2 flex flex-col mt-40 mb-28">
-      <h2 class="text-4xl lg:text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Laravel</span> Expert</h2>
+      <h2 class="text-4xl lg:text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Laravel</span> Jedi</h2>
       <p class="text-xl mt-4">
         I've been working with Laravel for over 8 years now. I've built a lot of projects with it focusing on escability,
         performance and security. I have lots of experience with Laravel ecosystem, testing practices, queues, commands,
@@ -72,15 +74,12 @@
   </div>
   <section id="more" class="px-6 md:px-14">
     <div class="w-full md:w-1/2 flex flex-col my-12">
-      <h2 class="text-4xl lg:text-6xl font-bold">Want to know me better?</h2>
+      <h2 class="text-4xl lg:text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Go</span> Padawan</h2>
       <p class="text-xl mt-4">
-        You can see my linkedin profile, my github repositories, or just send me an email. I'm always open to new projects. Or you can navigate to my about page to know more about me.
+        Once I met Go and was pretty much forced to learn it, I fell in love with it. Wenever I can I try to enhance my knowledge and build something from and for the community, hopefully I'll be shipping some stuff with this amazing language. You can see my GitHub to check some of my projects.
       </p>
-      <div class="my-12">
-        <RouterLink to="/about" class="text-xl text-emerald-400 dark:text-emerald-300 py-4 px-8 rounded-2xl border-2 border-emerald-400 dark:border-emerald-300 mt-4 hover:text-emerald-500 hover:border-emerald-500">
-        About me
-      </RouterLink>
-      </div>
     </div>
   </section>
+  <about-me />
+  <contact-form />
 </template>

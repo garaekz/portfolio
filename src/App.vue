@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { useRoute, RouterLink, RouterView } from 'vue-router';
 import { useHead } from '@unhead/vue'
 import { useDark, useToggle } from '@vueuse/core';
-import { MoonIcon, SunIcon, Cross1Icon } from '@radix-icons/vue';
+import { ArrowUpIcon, MoonIcon, SunIcon, Cross1Icon } from '@radix-icons/vue';
 import { useRecaptchaProvider } from 'vue-recaptcha'
 import { useRomanConverter } from '@/composables/roman';
 import SVGLogo from './components/SVGLogo.vue';
@@ -33,9 +33,9 @@ useHead({
 })
 
 const menuList = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' }
+  { name: 'Home', path: '#laravel' },
+  { name: 'About', path: '#about' },
+  { name: 'Contact', path: '#contact' }
 ]
 
 const isMenuOpen = ref(false)
@@ -51,11 +51,11 @@ const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
         </RouterLink>
         <div>
           <nav class="hidden md:flex gap-8">
-            <RouterLink v-for="menu in menuList" :key="menu.name" :to="menu.path"
+            <a v-for="menu in menuList" :key="menu.name" :href="menu.path"
               active-class="scale-110 text-emerald-600 dark:text-emerald-300"
               class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300 lowercase">
               {{ `./${menu.name}` }}
-            </RouterLink>
+            </a>
             <button @click="toggleDark()" class="hover:scale-125 hover:text-zinc-500 dark:hover:text-zinc-300">
               <SunIcon v-if="isDark" class="size-4" />
               <MoonIcon v-else class="size-4" />
@@ -70,12 +70,12 @@ const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
                 <Cross1Icon class="size-8" />
               </button>
               <div class="flex flex-col justify-center items-center gap-16 h-screen">
-                <RouterLink @click="toggleMenu" v-for="(menu, index) in menuList" :key="menu.name" :to="menu.path"
+                <a @click="toggleMenu" v-for="(menu, index) in menuList" :key="menu.name" :href="menu.path"
                   active-class="scale-1 text-emerald-600 dark:text-emerald-300"
                   :class="`transition-transform transform duration-500 delay-${index * 100} ease-in-out`"
                   class="hover:scale-110 hover:text-zinc-500 dark:hover:text-zinc-300 font-bold text-5xl">
                   {{ menu.name }}
-                </RouterLink>
+                </a>
               </div>
             </nav>
           </transition>
@@ -96,7 +96,7 @@ const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
       <RouterView />
     </div>
 
-    <footer class="min-h-80">
+    <footer class="min-h-20">
       <div
         class="flex py-8 md:py-0 md:fixed md:origin-bottom-left md:bottom-6 md:left-10 justify-center items-center text-emerald-500 dark:text-emerald-300 md:-rotate-90">
         <div class="hidden md:flex bg-emerald-400 w-20 mr-4 h-[1px]" />
@@ -104,6 +104,13 @@ const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
           &copy; {{ romanYear }} David Garay. All rights reserved.
         </p>
       </div>
+      <!-- lets create a go up button at the other side fixed too -->
+      <a
+        href="#app"
+        class="fixed z-50 origin-bottom-right bottom-5 right-5 justify-center items-center text-emerald-100 dark:text-emerald-300 bg-emerald-400 dark:bg-emerald-600 rounded p-2 hover:scale-110 transition-transform">
+        <ArrowUpIcon class="size-6" />
+
+      </a>
     </footer>
   </div>
 </template>
