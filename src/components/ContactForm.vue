@@ -3,8 +3,16 @@ import { ref } from 'vue';
 import { useChallengeV2 } from 'vue-recaptcha'
 import emailjs from '@emailjs/browser';
 import { useDark } from '@vueuse/core';
+import DynamicDialog from '@/components/DynamicDialog.vue';
 
 const isDark = useDark();
+
+const { root, onVerify } = useChallengeV2({
+    options: {
+        theme: isDark.value ? 'dark' : 'light',
+        size: 'normal',
+    }
+})
 
 const cleanForm = {
     name: '',
@@ -12,28 +20,38 @@ const cleanForm = {
     message: '',
 };
 
-const { root, onVerify } = useChallengeV2({
-  options: {
-    theme: isDark.value ? 'dark' : 'light',
-    size: 'normal',
-  }
-})
-
-const form = ref(cleanForm);
+const form = ref({ ...cleanForm });
 const sending = ref<boolean>(false);
 const captchaRes = ref<string>('');
 
 onVerify(async (response) => {
     captchaRes.value = response;
-})
+});
+
+const modalSettings = ref({
+    isOpen: false,
+    title: '',
+    description: '',
+    content: '',
+    cancelText: '',
+    confirmText: '',
+});
 
 const onSubmit = async () => {
     sending.value = true;
 
     const { name, email, message } = form.value;
     if (!name || !email || !message) {
-        alert('Please, fill all the fields');
+        modalSettings.value = {
+            isOpen : true,
+            title: 'Error',
+            description: 'Fields missing',
+            content: 'Please, fill all the fields to be able to send the message.',
+            cancelText: 'Ok',
+            confirmText: '',
+        };
         sending.value = false;
+        form.value = { ...cleanForm };
         return;
     }
 
@@ -53,16 +71,25 @@ const onSubmit = async () => {
                 publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
             }
         );
-        alert('Message sent successfully!');
-        form.value = cleanForm;
+
+        modalSettings.value = {
+            isOpen : true,
+            title: 'Success',
+            description: 'Message sent',
+            content: "Your message was sent successfully. I'll get back to you as soon as I can.",
+            cancelText: 'Ok',
+            confirmText: '',
+        };
     } catch (error) {
         alert('An error occurred while sending the message');
     } finally {
+        form.value = { ...cleanForm };
         sending.value = false;
     }
 }
 </script>
 <template>
+    <dynamic-dialog :open="modalSettings.isOpen" :title="modalSettings.title" :description="modalSettings.description" :content="modalSettings.content" :cancelText="modalSettings.cancelText" @close="modalSettings.isOpen = false" />
     <section id="contact" class="px-2 md:px-12">
         <h1 class="text-6xl font-bold mt-40">
             Contact Me<span class="text-7xl text-emerald-400">.</span>
