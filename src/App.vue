@@ -108,7 +108,7 @@ const toggleMenu = () => isMenuOpen.value = !isMenuOpen.value
       </div>
       <!-- lets create a go up button at the other side fixed too -->
       <a
-        href="#app"
+        href="#"
         class="fixed z-10 origin-bottom-right bottom-5 right-5 justify-center items-center text-emerald-100 dark:text-emerald-300 bg-emerald-400 dark:bg-emerald-600 rounded p-2 hover:scale-110 transition-transform">
         <ArrowUpIcon class="size-6" />
 
