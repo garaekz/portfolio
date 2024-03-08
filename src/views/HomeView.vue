@@ -49,9 +49,7 @@ import ContactForm from '@/components/ContactForm.vue';
     <div class="w-full md:w-1/2 flex flex-col mt-40 mb-28">
       <h2 class="text-4xl lg:text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Laravel</span> Jedi</h2>
       <p class="text-xl mt-4">
-        I've been working with Laravel for over 8 years now. I've built a lot of projects with it focusing on escability,
-        performance and security. I have lots of experience with Laravel ecosystem, testing practices, queues, commands,
-        and design patterns.
+        For over 8 years, Laravel has been my field of expertise. I've tackled projects emphasizing scalability, performance, and security, turning challenges into opportunities for growth. My experience spans the Laravel ecosystem, including testing practices, queues, and commands, all the way to implementing efficient design patterns. Each project has been a step forward in my journey with Laravel.
       </p>
     </div>
   </section>
@@ -62,10 +60,7 @@ import ContactForm from '@/components/ContactForm.vue';
     <div class="w-full md:w-1/2 flex flex-col my-12">
       <h2 class="text-4xl lg:text-6xl font-bold text-right"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Vue.js</span> and <span class="text-emerald-400 dark:text-emerald-300 font-bold">TailwindCSS</span> Lover</h2>
       <p class="text-xl mt-4 text-right">
-        What do you use to complement your Laravel projects? Vue.js and TailwindCSS are my go-to tools. I've been working
-        with Vue.js for over 7 years now, I just love how it integrates with Laravel. TailwindCSS is my favorite CSS
-        framework, I love how it helps me
-        to build beautiful and responsive UIs with ease.
+        Vue.js and TailwindCSS have become my go-to stack alongside Laravel. With 6 years of Vue.js experience, I appreciate its seamless integration with Laravel, enhancing user interfaces dynamically. TailwindCSS is my toolkit for crafting responsive designs quickly and efficiently. They're not just tools; they're part of my development DNA.
       </p>
     </div>
   </section>
@@ -76,7 +71,7 @@ import ContactForm from '@/components/ContactForm.vue';
     <div class="w-full md:w-1/2 flex flex-col my-12">
       <h2 class="text-4xl lg:text-6xl font-bold"><span class="text-emerald-400 dark:text-emerald-300 font-bold">Go</span> Padawan</h2>
       <p class="text-xl mt-4">
-        Once I met Go and was pretty much forced to learn it, I fell in love with it. Wenever I can I try to enhance my knowledge and build something from and for the community, hopefully I'll be shipping some stuff with this amazing language. You can see my GitHub to check some of my projects.
+        Once I met Go (and was pretty much forced to learn it for a project), I fell in love with it. Whenever I can, I try to enhance my knowledge and build something for the community, hoping to ship some amazing stuff with this language. You can check out my GitHub to see some of my tries and future projects.
       </p>
     </div>
   </section>
